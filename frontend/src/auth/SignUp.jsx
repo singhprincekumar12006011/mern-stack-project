@@ -5,7 +5,7 @@ function Signup() {
     <div
       className="flex justify-center items-center min-h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80')",
+        backgroundImage: "url('https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg')",
       }}
     >
       <div className="backdrop-blur-md bg-white/10 border border-white/30 rounded-xl shadow-lg p-8 w-[300px] sm:w-[400px] text-white">

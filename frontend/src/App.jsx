@@ -32,7 +32,7 @@
 //           </PublicRoute>
 //         }
 //       />
-      
+
 //       <Route path="*" element={<Navigate to="/" />} />
 //     </Routes>
 //   );
@@ -40,26 +40,66 @@
 
 // export default App;
 
-import { Route, Routes, Navigate } from 'react-router-dom';
-import Login from './auth/Login';
-import Signup from './auth/SignUp';
-import Home from './pages/Home';
-import PrivateRoute from './auth/PrivateRoute';
-import PublicRoute from './auth/PublicRoute';
+import { Route, Routes, Navigate } from "react-router-dom";
+import Login from "./auth/Login";
+import Signup from "./auth/SignUp";
+import Home from "./pages/Home";
+import PrivateRoute from "./auth/PrivateRoute";
+import PublicRoute from "./auth/PublicRoute";
+import Header from "./components/Header";
+import ContactUs from "./pages/ContactUs";
+import Programs from "./pages/Programs";
+import Profile from "./pages/Profile";
+import DefaultRoutes from "./auth/DefaultRoutes";
 
 function App() {
-  const privateRoutes = [
-    { path: '/', element: <Home /> }
-  ];
+  const privateRoutes = [{ path: "/profile", element: <Profile /> }];
 
   const publicRoutes = [
-    { path: '/login', element: <Login /> },
-    { path: '/signup', element: <Signup /> }
+    { path: "/login", element: <Login /> },
+    { path: "/signup", element: <Signup /> },
+  ];
+
+  const defaultRoutes = [
+    {
+      path: "/",
+      element: (
+        <>
+          {/* <Header /> */}
+          <Home />
+        </>
+      ),
+    },
+    {
+      path: "/contact",
+      element: (
+        <>
+          {/* <Header /> */}
+          <ContactUs />
+        </>
+      ),
+    },
+    {
+      path: "/programs",
+      element: (
+        <>
+          {/* <Header /> */}
+          <Programs />
+        </>
+      ),
+    },
   ];
 
   return (
     <Routes>
-      {/* ✅ Private Routes */}
+      {defaultRoutes.map(({ path, element }) => (
+        <Route
+          key={path}
+          path={path}
+          element={<DefaultRoutes>{element}</DefaultRoutes>}
+        />
+      ))}
+
       {privateRoutes.map(({ path, element }) => (
         <Route
           key={path}
@@ -76,8 +116,6 @@ function App() {
           element={<PublicRoute>{element}</PublicRoute>}
         />
       ))}
-
-   
     </Routes>
   );
 }
