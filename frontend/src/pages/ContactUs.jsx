@@ -19,7 +19,6 @@ function Contact() {
   };
 
   const handleSubmit = () => {
-    console.log('Form submitted:', formData);
     alert('Thank you for your message! We will get back to you soon.');
     setFormData({
       name: '',
@@ -70,8 +69,8 @@ function Contact() {
   ];
 
   return (
-    <div className="mt-[-100px] pt-[110px] text-white bg-gradient-to-b from-black via-black to-gray-900 min-h-screen">
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+    <div className="pt-25 text-white bg-gradient-to-b from-black via-black to-gray-900 min-h-screen">
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Hero Section */}

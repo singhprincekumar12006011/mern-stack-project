@@ -58,7 +58,7 @@ function Details() {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 container mx-auto px-6 py-16 lg:py-24">
+      <div className="relative z-1 container mx-auto px-6 py-16 lg:py-24">
         <div className="max-w-4xl mx-auto">
           
           {/* Header Section */}

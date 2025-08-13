@@ -5,6 +5,7 @@ function Contents() {
   const [state, setState] = useState("program");
   return (
     <div className="min-h-screen bg-black">
+      <div className="w-10/10 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
       <div className="flex flex-col items-center justify-center py-10">
         <div className="inline-flex items-center gap-3 mb-6">
           <div className="w-12 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>

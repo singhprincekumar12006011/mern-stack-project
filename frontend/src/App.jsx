@@ -51,9 +51,15 @@ import ContactUs from "./pages/ContactUs";
 import Programs from "./pages/Programs";
 import Profile from "./pages/Profile";
 import DefaultRoutes from "./auth/DefaultRoutes";
+import Workout from "./profilePages/Workout";
+import Diet from "./profilePages/Diet";
 
 function App() {
-  const privateRoutes = [{ path: "/profile", element: <Profile /> }];
+  const privateRoutes = [
+    { path: "/profile", element: <Profile /> },
+    { path: '/workout', element: <Workout /> },
+    { path: '/diet', element: <Diet /> },
+  ];
 
   const publicRoutes = [
     { path: "/login", element: <Login /> },

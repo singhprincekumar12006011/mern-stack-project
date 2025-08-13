@@ -74,7 +74,7 @@ function Programs() {
   };
 
   return (
-    <div className="text-white bg-black min-h-screen mt-[-72px] pt-[80px] pb-10">
+    <div className="text-white bg-black min-h-screen  pt-[105px] pb-10">
       <div className="w-10/10 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
       
       {/* Hero Section */}
