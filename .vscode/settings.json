@@ -1,0 +1,3 @@
+{
+    "markdown.suggest.paths.includeWorkspaceHeaderCompletions": "onSingleOrDoubleHash"
+}

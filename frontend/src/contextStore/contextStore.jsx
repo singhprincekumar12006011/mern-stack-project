@@ -1,14 +1,11 @@
 import { createContext, useState, useEffect } from "react";
 
-export const StoreContext = createContext();
+const StoreContext = createContext();
 
 const StoreContextProvider = ({ children }) => {
-  const [user, setUser] = useState("");
-  const [token, setToken] = useState(() => {
-    return localStorage.getItem("token") || null;
-  });
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(() => localStorage.getItem("token") || null);
 
-  //store user details from localstorage
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -16,12 +13,11 @@ const StoreContextProvider = ({ children }) => {
         setUser(JSON.parse(storedUser));
       } catch (e) {
         console.error("Invalid user data in localStorage", e);
-        setUser(""); // reset to empty or null
+        setUser(null);
       }
     }
-  }, [token]);
+  }, []);
 
-  // Optional: Sync token to localStorage when it changes
   useEffect(() => {
     if (token) {
       localStorage.setItem("token", token);
@@ -30,11 +26,7 @@ const StoreContextProvider = ({ children }) => {
     }
   }, [token]);
 
-  const contextValue = {
-    token,
-    setToken,
-    user,
-  };
+  const contextValue = { token, setToken, user, setUser };
 
   return (
     <StoreContext.Provider value={contextValue}>
@@ -43,4 +35,5 @@ const StoreContextProvider = ({ children }) => {
   );
 };
 
+export { StoreContext }; // 👈 export separately
 export default StoreContextProvider;

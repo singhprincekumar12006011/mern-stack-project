@@ -53,12 +53,14 @@ import Profile from "./pages/Profile";
 import DefaultRoutes from "./auth/DefaultRoutes";
 import Workout from "./profilePages/Workout";
 import Diet from "./profilePages/Diet";
+import Profiles from './profilePages/Profile'
 
 function App() {
   const privateRoutes = [
     { path: "/profile", element: <Profile /> },
     { path: '/workout', element: <Workout /> },
     { path: '/diet', element: <Diet /> },
+    { path: "/profile2", element: <Profiles /> }
   ];
 
   const publicRoutes = [
