@@ -8,6 +8,8 @@ import ExploreProgram from "./universityPages/component/ExploreProgram";
 import Contact from "./universityPages/Pages/Contact";
 import Login from "./universityPages/Pages/Login";
 import LoginRoutes from "./routes/LoginRoutes";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
+import ProtectedHome from "./ProtectedPage/Home";
 
 function App() {
   const publicRoutes = [
@@ -21,7 +23,7 @@ function App() {
   const loginRoutes = [{ path: "/login", element: <Login /> }];
 
   const protectedRoutes = [
-     {path: '/', element: <Home />}
+    { path: "/protectedHome", element: <ProtectedHome /> },
   ];
   return (
     <Routes>
@@ -38,6 +40,13 @@ function App() {
           key={path}
           path={path}
           element={<LoginRoutes>{element} </LoginRoutes>}
+        />
+      ))}
+      {protectedRoutes.map(({ path, element }) => (
+        <Route
+          key={path}
+          path={path}
+          element={<ProtectedRoutes>{element}</ProtectedRoutes>}
         />
       ))}
     </Routes>

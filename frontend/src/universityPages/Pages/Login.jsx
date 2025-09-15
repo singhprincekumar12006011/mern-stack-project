@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { IoArrowBackSharp, IoEyeOff, IoEye } from "react-icons/io5";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { StoreContext } from "../../contextAPI/contextStore";
 
 function Login() {
+  const {setRole, setToken} = useContext(StoreContext);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -38,8 +41,9 @@ function Login() {
         });
 
         localStorage.setItem("token", res.data.token);
+        setToken(res.data.token);
+        setRole(res.data.role);
         localStorage.setItem("user", JSON.stringify(res.data.user));
-        
       }
     } catch (error) {
       console.error(error);
