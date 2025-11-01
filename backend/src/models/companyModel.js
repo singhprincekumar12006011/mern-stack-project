@@ -6,13 +6,21 @@ const companySecham = new mongoose.Schema(
       type: Date,
       required: true,
     },
-    itemName: {
-      type: String,
-      required: true,
-    },
-    itemNumber: {
-      type: String,
-    },
+    item: [
+      {
+        itemName: {
+          type: String,
+          required: true,
+        },
+        itemNumber: {
+          type: String,
+        },
+        price: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
     description: {
       type: String,
     },
@@ -20,13 +28,17 @@ const companySecham = new mongoose.Schema(
       type: String,
       required: true,
     },
-    price: {
-      type: String,
-      required: true,
-    },
     BuyerName: {
       type: String,
       required: true,
+    },
+    totalPrice: {
+      type : String,
+      required : true
+    },
+    paidBy : {
+      type : String,
+      required : true
     },
     remarks: {
       type: String,

@@ -112,9 +112,66 @@ export const login = async (req, res) => {
   }
 };
 
+export const getAll = async (req, res) => {
+  try {
+    const data = await User.find();
+    if (!data) {
+      return res.status(404).json({
+        success: false,
+        message: "No data found.",
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: "Data get successfully!",
+      data: data,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+};
 
 export const deleteUser = async (req, res) => {
   try {
-  } catch (error) {}
+    const { id } = req.params;
+
+    // 1️⃣ Validate ID presence
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        message: "User ID is required!",
+      });
+    }
+
+    // 2️⃣ Check if user exists
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found!",
+      });
+    }
+
+    // 3️⃣ Delete the user
+    await User.findByIdAndDelete(id);
+
+    // 4️⃣ Send success response
+    return res.status(200).json({
+      success: true,
+      message: "User deleted successfully!",
+    });
+
+  } catch (error) {
+    console.error("❌ Error deleting user:", error.message);
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error!",
+      error: error.message,
+    });
+  }
 };
- 
+
